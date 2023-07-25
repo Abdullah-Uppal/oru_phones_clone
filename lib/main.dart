@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:oru_phones/app_state.dart';
+import 'package:oru_phones/globals.dart';
+import 'package:provider/provider.dart';
+import 'homepage/homepage.dart';
 
 void main() {
-  runApp(const MyApp());
+  var app = ChangeNotifierProvider(
+    create: (context) => AppState(),
+    child: const MyApp(),
+  );
+  runApp(app);
 }
 
 class MyApp extends StatelessWidget {
@@ -13,8 +21,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true,
-      ),
+          useMaterial3: true,
+          colorScheme: ColorScheme.light(primary: Globals.primary),
+          searchViewTheme: const SearchViewThemeData().copyWith(
+            surfaceTintColor: Colors.white,
+            elevation: 3,
+            dividerColor: Colors.grey[300],
+          )),
+      home: const HomePage(),
     );
   }
 }
