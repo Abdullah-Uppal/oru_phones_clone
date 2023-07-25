@@ -19,11 +19,12 @@ class _MobilesGridState extends State<MobilesGrid> {
         // cacheExtent: 10,
         // physics: const NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 300,
+          // crossAxisCount: 2,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
-          childAspectRatio: 1 / 1.5,
+          childAspectRatio: 1 / 1.7,
         ),
         itemBuilder: (context, index) {
           return mobiles[index];

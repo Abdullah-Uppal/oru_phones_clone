@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oru_phones/network/models/mobile/mobile.dart';
+import 'package:intl/intl.dart';
 
 class MobileTile extends StatelessWidget {
   final Mobile mobile;
@@ -96,11 +97,13 @@ class MobileTile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Nagpur",
+                          mobile.listingLocation,
                           style: TextStyle(fontSize: 11),
                         ),
                         Text(
-                          "Mar 31st",
+                          DateFormat("MMM dd").format(
+                          DateFormat("dd/MM/yyyy")
+                              .parse(mobile.listingDate)),
                           style: TextStyle(fontSize: 11),
                         ),
                       ],
