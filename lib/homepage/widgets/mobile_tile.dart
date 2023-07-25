@@ -84,7 +84,7 @@ class MobileTile extends StatelessWidget {
                     Wrap(
                       children: [
                         Text(
-                          mobile.deviceStorage,
+                          mobile.deviceStorage + " | ",
                           style: TextStyle(fontSize: 11),
                         ),
                         Text(

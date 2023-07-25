@@ -20,7 +20,7 @@ class _MobilesGridState extends State<MobilesGrid> {
         // physics: const NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 300,
+          maxCrossAxisExtent: 200,
           // crossAxisCount: 2,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
