@@ -31,12 +31,18 @@ class Offers extends StatelessWidget {
                 if (index == 0)
                   Positioned.fill(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          CustomButton(onPressed: (){}, child: const Text("Sell Now"),),
-                          CustomButton(onPressed: (){}, child: const Text("Buy Now"),),
+                          CustomButton(
+                            onPressed: () {},
+                            child: const Text("Sell Now"),
+                          ),
+                          CustomButton(
+                            onPressed: () {},
+                            child: const Text("Buy Now"),
+                          ),
                         ],
                       ),
                     ),
