@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:oru_phones/network/models/mobile/mobile.dart';
+import 'package:oru_phones/models/mobile/mobile.dart';
 import 'package:oru_phones/network/oru_phones_api.dart';
 
 class AppState extends ChangeNotifier {
@@ -19,6 +19,7 @@ class AppState extends ChangeNotifier {
     initState();
   }
   void initState() {
+    _currentPage = 1;
     mobiles = OruPhonesApi().getMobiles(10, _currentPage++);
     mobiles.then((value) => notifyListeners());
     controller.addListener(scrollHandler);

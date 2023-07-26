@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:oru_phones/network/models/mobile/mobile.dart';
-import 'package:oru_phones/network/models/search_model.dart';
+import 'package:oru_phones/models/mobile/mobile.dart';
+import 'package:oru_phones/models/search_model.dart';
 
 class OruPhonesApi {
   Future<SearchModel> search(String query) async {

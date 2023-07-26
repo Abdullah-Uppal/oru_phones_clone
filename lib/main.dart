@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oru_phones/app_state.dart';
 import 'package:oru_phones/globals.dart';
+import 'package:oru_phones/notificationpage/notificationpage.dart';
 import 'package:provider/provider.dart';
 import 'homepage/homepage.dart';
 
@@ -28,7 +29,11 @@ class MyApp extends StatelessWidget {
             elevation: 3,
             dividerColor: Colors.grey[300],
           )),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/notifications': (context) => const NotificationPage(),
+      },
     );
   }
 }

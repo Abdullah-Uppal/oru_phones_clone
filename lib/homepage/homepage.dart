@@ -57,7 +57,20 @@ class HomePageState extends State<HomePage> {
                   } else if (snapshot.hasError) {
                     return SliverToBoxAdapter(
                       child: Center(
-                        child: Text(snapshot.error.toString()),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 20.0),
+                          child: Column(
+                            children: [
+                              Text("No Internet"),
+                              FilledButton.tonalIcon(
+                                  onPressed: () {
+                                    appState.initState();
+                                  },
+                                  icon: Icon(Icons.refresh_rounded),
+                                  label: Text("Retry"))
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   } else {

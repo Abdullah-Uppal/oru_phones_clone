@@ -1,6 +1,9 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
-import 'package:oru_phones/network/models/mobile/mobile.dart';
+import 'package:oru_phones/models/mobile/mobile.dart';
 import 'package:intl/intl.dart';
+import 'package:optimized_cached_image/optimized_cached_image.dart';
 
 class MobileTile extends StatelessWidget {
   final Mobile mobile;
@@ -27,22 +30,9 @@ class MobileTile extends StatelessWidget {
             children: [
               Expanded(
                 child: Center(
-                  child: Image.network(
-                    mobile.defaultImage.fullImage ?? "",
-                    cacheWidth: MediaQuery.of(context).size.width ~/ 2,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) {
-                        return child;
-                      }
-                      return Center(
-                          child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
-                            : null,
-                      ));
-                    },
-                    errorBuilder: (context, error, stackTrace) {
+                  child: OptimizedCacheImage(
+                    imageUrl: mobile.defaultImage.fullImage ?? "",
+                    errorWidget: (context, url, error) {
                       return const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -58,6 +48,13 @@ class MobileTile extends StatelessWidget {
                             ),
                           ),
                         ],
+                      );
+                    },
+                    progressIndicatorBuilder: (context, url, progress) {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: progress.progress,
+                        ),
                       );
                     },
                   ),
@@ -78,8 +75,8 @@ class MobileTile extends StatelessWidget {
                     ),
                     Text(
                       mobile.model,
-                      style:
-                          const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.bold),
                     ),
                     Wrap(
                       children: [
@@ -101,8 +98,7 @@ class MobileTile extends StatelessWidget {
                           style: const TextStyle(fontSize: 11),
                         ),
                         Text(
-                          DateFormat("MMM dd").format(
-                          DateFormat("dd/MM/yyyy")
+                          DateFormat("MMM dd").format(DateFormat("dd/MM/yyyy")
                               .parse(mobile.listingDate)),
                           style: const TextStyle(fontSize: 11),
                         ),

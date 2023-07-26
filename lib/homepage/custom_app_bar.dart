@@ -35,7 +35,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
             Icons.notifications_none_rounded,
             color: Theme.of(context).colorScheme.onPrimary,
           ),
-          onPressed: () {},
+          onPressed: () async {
+            await Navigator.of(context).pushNamed('/notifications');
+          },
         ),
       ],
       title: Image.asset(
