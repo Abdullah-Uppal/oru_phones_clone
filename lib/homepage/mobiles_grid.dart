@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:oru_phones/homepage/widgets/mobile_tile.dart';
 
 class MobilesGrid extends StatefulWidget {
   final List<Widget> mobiles;
@@ -10,7 +9,6 @@ class MobilesGrid extends StatefulWidget {
 }
 
 class _MobilesGridState extends State<MobilesGrid> {
-  late final mobiles = widget.mobiles;
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
@@ -20,16 +18,16 @@ class _MobilesGridState extends State<MobilesGrid> {
         // physics: const NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
+          maxCrossAxisExtent: 250,
           // crossAxisCount: 2,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
-          childAspectRatio: 1 / 1.7,
+          childAspectRatio: 1 / 1.5,
         ),
         itemBuilder: (context, index) {
-          return mobiles[index];
+          return widget.mobiles[index];
         },
-        itemCount: mobiles.length,
+        itemCount: widget.mobiles.length,
       ),
     );
   }

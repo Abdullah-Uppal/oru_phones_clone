@@ -29,6 +29,4 @@ class DefaultImage {
   /// Converts [DefaultImage] to a JSON string.
   String toJson() => json.encode(toMap());
 
-  @override
-  int get hashCode => fullImage.hashCode;
 }

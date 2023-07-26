@@ -20,6 +20,11 @@ class OruPhonesApi {
           "limit": limit,
           "page": page,
         });
-    return (response.data['listings'] as List).map((e) => Mobile.fromMap(e)).toList();
+    // 204 -> no content
+    return response.statusCode == 204
+        ? []
+        : (response.data['listings'] as List)
+            .map((e) => Mobile.fromMap(e))
+            .toList();
   }
 }

@@ -16,7 +16,7 @@ class MobileTile extends StatelessWidget {
           top: 5,
           right: 5,
           child: IconButton(
-            icon: Icon(Icons.favorite_border_rounded),
+            icon: const Icon(Icons.favorite_border_rounded),
             onPressed: () {},
           ),
         ),
@@ -71,7 +71,7 @@ class MobileTile extends StatelessWidget {
                   children: [
                     Text(
                       "Rs. ${mobile.listingNumPrice}",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
                       ),
@@ -79,17 +79,17 @@ class MobileTile extends StatelessWidget {
                     Text(
                       mobile.model,
                       style:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                     ),
                     Wrap(
                       children: [
                         Text(
-                          mobile.deviceStorage + " | ",
-                          style: TextStyle(fontSize: 11),
+                          "${mobile.deviceStorage} | ",
+                          style: const TextStyle(fontSize: 11),
                         ),
                         Text(
                           "Condition: ${mobile.deviceCondition}",
-                          style: TextStyle(fontSize: 11),
+                          style: const TextStyle(fontSize: 11),
                         ),
                       ],
                     ),
@@ -98,13 +98,13 @@ class MobileTile extends StatelessWidget {
                       children: [
                         Text(
                           mobile.listingLocation,
-                          style: TextStyle(fontSize: 11),
+                          style: const TextStyle(fontSize: 11),
                         ),
                         Text(
                           DateFormat("MMM dd").format(
                           DateFormat("dd/MM/yyyy")
                               .parse(mobile.listingDate)),
-                          style: TextStyle(fontSize: 11),
+                          style: const TextStyle(fontSize: 11),
                         ),
                       ],
                     ),

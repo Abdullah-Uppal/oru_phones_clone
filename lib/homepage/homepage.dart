@@ -17,9 +17,15 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        controller: Provider.of<AppState>(context).controller,
         slivers: [
           // bar
           CustomAppBar(
@@ -29,7 +35,6 @@ class HomePageState extends State<HomePage> {
               ];
             },
           ),
-
           // main section
           SliverToBoxAdapter(
             child: Column(
@@ -67,6 +72,20 @@ class HomePageState extends State<HomePage> {
                   }
                 });
           }),
+          Consumer<AppState>(
+            builder: (context, appState, child) {
+              return SliverToBoxAdapter(
+                child: appState.isAlreadyLoading
+                    ? const Center(
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 50.0, bottom: 50),
+                          child: CircularProgressIndicator(),
+                        ),
+                      )
+                    : const SizedBox(),
+              );
+            },
+          ),
         ],
       ),
     );
