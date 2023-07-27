@@ -61,7 +61,8 @@ class HomePageState extends State<HomePage> {
                           padding: EdgeInsets.only(top: 20.0),
                           child: Column(
                             children: [
-                              Text("No Internet"),
+                              const Text("Taking too long. Maybe your internet is down"),
+                              const SizedBox(height: 10),
                               FilledButton.tonalIcon(
                                   onPressed: () {
                                     appState.initState();

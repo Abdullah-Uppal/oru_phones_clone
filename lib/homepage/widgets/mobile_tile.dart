@@ -1,5 +1,3 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 import 'package:oru_phones/models/mobile/mobile.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +9,7 @@ class MobileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var half = MediaQuery.of(context).size.width ~/ 2;
     return Card(
       margin: EdgeInsets.zero,
       clipBehavior: Clip.antiAlias,
@@ -32,6 +31,10 @@ class MobileTile extends StatelessWidget {
                 child: Center(
                   child: OptimizedCacheImage(
                     imageUrl: mobile.defaultImage.fullImage ?? "",
+                    maxWidthDiskCache: half,
+                    memCacheWidth: half,
+                    fadeInDuration: const Duration(milliseconds: 0),
+                    fadeOutDuration: const Duration(milliseconds: 0),
                     errorWidget: (context, url, error) {
                       return const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,8 +55,13 @@ class MobileTile extends StatelessWidget {
                     },
                     progressIndicatorBuilder: (context, url, progress) {
                       return Center(
-                        child: CircularProgressIndicator(
-                          value: progress.progress,
+                        child: SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            value: progress.progress,
+                          ),
                         ),
                       );
                     },
