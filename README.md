@@ -1,16 +1,16 @@
-# oru_phones
+# Oru Phones Clone
 
-A new Flutter project.
+A flutter project making use of REST API to fetch dynamic data. 
 
-## Getting Started
+---
+### Just cloned?
+First fetch the with following command: `flutter pub add`
+Build an apk with following command: `flutter build apk`
+Run in debug mode: `flutter run -d [device_id]` or if you're using vscode you can press `Ctrl + F5`
 
-This project is a starting point for a Flutter application.
+---
+### 
+**Image caching**
+[optimized_cached_image](https://pub.dev/packages/optimized_cached_image) package is used for image caching and optimization for better memory management. Used half of screen's width as width of memory and disk cached image.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**APK LINK**: [oru_phones.apk](https://drive.google.com/file/d/1U6ERNRUt8dPrZd2uTGtArUSDu72beVlP/view?usp=sharing)
