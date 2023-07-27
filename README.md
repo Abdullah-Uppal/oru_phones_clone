@@ -5,7 +5,9 @@ A flutter project making use of REST API to fetch dynamic data.
 ---
 ### Just cloned?
 First fetch the with following command: `flutter pub add`
+
 Build an apk with following command: `flutter build apk`
+
 Run in debug mode: `flutter run -d [device_id]` or if you're using vscode you can press `Ctrl + F5`
 
 ---
