@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:oru_phones/models/mobile/mobile.dart';
 import 'package:intl/intl.dart';
 import 'package:optimized_cached_image/optimized_cached_image.dart';
+import 'dart:io' show Platform;
 
 class MobileTile extends StatelessWidget {
   final Mobile mobile;
   const MobileTile(this.mobile, {super.key});
+
+  bool _isMobile() {
+    if (Platform.isAndroid || Platform.isIOS) {
+      return true;
+    }
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +37,7 @@ class MobileTile extends StatelessWidget {
             children: [
               Expanded(
                 child: Center(
-                  child: OptimizedCacheImage(
+                  child: _isMobile() ? OptimizedCacheImage(
                     imageUrl: mobile.defaultImage.fullImage ?? "",
                     maxWidthDiskCache: half,
                     memCacheWidth: half,
@@ -63,6 +71,40 @@ class MobileTile extends StatelessWidget {
                             value: progress.progress,
                           ),
                         ),
+                      );
+                    },
+                  ): Image.network(
+                    mobile.defaultImage.fullImage ?? "",
+                    cacheWidth: half,
+                    width: half.toDouble(),
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      }
+                      return Center(
+                          child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                      ));
+                    },
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.error,
+                            color: Colors.red,
+                          ),
+                          Text(
+                            "Failed to fetch",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),

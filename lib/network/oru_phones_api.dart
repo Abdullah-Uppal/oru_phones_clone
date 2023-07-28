@@ -13,8 +13,6 @@ class OruPhonesApi {
     return SearchModel.fromJson(response.data);
   }
 
-  
-
   Future<List<Mobile>> getMobiles(int limit, int page) async {
     var response = await Dio().get(
         "https://dev2be.oruphones.com/api/v1/global/assignment/getListings",
