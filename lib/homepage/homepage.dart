@@ -25,6 +25,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         controller: Provider.of<AppState>(context).controller,
         slivers: [
           // bar

@@ -15,7 +15,6 @@ class _MobilesGridState extends State<MobilesGrid> {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       sliver: SliverGrid.builder(
         // cacheExtent: 10,
-        // physics: const NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 250,
